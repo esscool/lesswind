@@ -1,0 +1,254 @@
+{
+    // 自定义 Todo-Tree 插件的配置代码
+    // 保存路径 .vscode/settings.json 
+    "todo-tree.tree.scanMode": "current file",
+    "todo-tree.regex.regex": "(//|///|//!|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "todo-tree.tree.labelFormat": "${after} 🚦${line}",
+    "todo-tree.general.tagGroups": {
+        // bug: i.e. 表示错误的标签
+        "bug:": [
+            "BUG:",
+            "bugs:",
+            "BUGS:",
+            "issue:",
+            "ISSUE:",
+            "fix:",
+            "FIX:",
+            "fixme:",
+            "FIXME:",
+        ],
+        // todo: i.e. 表示待办事项的标签
+        "todo:": [
+            "TODO:",
+        ],
+        // task: i.e. 表示任务信息的标签
+        "task:": [
+            "TASK:",
+            "##"
+        ],
+        // - [ ] i.e. 表示计划实现的功能清单
+        "plan:": [
+            "PLAN:",
+            "- [ ]",
+            "- []",
+        ],
+        // - [x] i.e. 表示已经实现的功能清单
+        "done:": [
+            "DONE:",
+            "- [x]",
+        ],
+        // note: i.e. 表示重要信息的标签
+        "note:": [
+            "NOTE:",
+        ],
+    },
+    "todo-tree.general.tags": [
+        "bug:",
+        "BUG:",
+        "bugs:",
+        "BUGS:",
+        "issue:",
+        "ISSUE:",
+        "fix:",
+        "FIX:",
+        "fixme:",
+        "FIXME:",
+        "todo:",
+        "TODO:",
+        "plan:",
+        "PLAN:",
+        "- [ ]",
+        "- []",
+        "done:",
+        "DONE:",
+        "- [x]",
+        "note:",
+        "NOTE:",
+        "task:",
+        "TASK:",
+        "##",
+    ],
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "clock",
+        "iconColour": "#006699",
+        "foreground": "#006699",
+        "background": "#006699",
+        "opacity": 0.3,
+        "borderRadius": "3px",
+    },
+    "todo-tree.highlights.customHighlight": {
+        "bug:": {
+            "icon": "bug",
+            "iconColour": "#BF242A",
+            "foreground": "#BF242A",
+            "background": "#BF242A",
+        },
+        "todo:": {
+            "icon": "pencil",
+            "iconColour": "#16A951",
+            "foreground": "#16A951",
+            "background": "#16A951",
+        },
+        "note:": {
+            "icon": "note",
+            "iconColour": "#F2BE45",
+            "foreground": "#F2BE45",
+            "background": "#F2BE45",
+        },
+        "task:": {
+            "icon": "tasklist",
+            "iconColour": "#1685A9",
+            "foreground": "#1685A9",
+            "background": "#1685A9",
+        },
+        "plan:": {
+            "icon": "checklist",
+            "iconColour": "#426666",
+            "foreground": "#426666",
+            "background": "#426666",
+        },
+        "done:": {
+            "icon": "checklist",
+            "iconColour": "#16A951",
+            "foreground": "#16A951",
+            "background": "#1685A9",
+        },
+    },
+    // 自定义 Commit Message Editor 插件的配置
+    // 保存路径 .vscode/settings.json
+    // 提交规范 https://www.conventionalcommits.org
+    // 为提交信息定义的前缀类型及使用约定: 
+    //      1. 研发类型: 此类前缀只允许在开发阶段使用, 允许合并时丢弃, 不影响版本计算;
+    //      2. 归档类型: 此类前缀提交的消息将长久保存, 不允许合并, 参与版本计算;
+    //      3. 维护类型: 此类前缀只允许在修改已归档的代码时使用, 不允许合并, 参与版本计算;
+    //      4. 保养类型: 此类前缀只允许在修改已归档的代码时使用, 允许合并时丢弃, 不影响版本计算.
+    "commit-message-editor.view.visibleViews": "form",
+    "commit-message-editor.view.showRecentCommits": true,
+    "commit-message-editor.dynamicTemplate": [
+        "{type}{scope}{breaking_change}: {description}",
+        "",
+        "{body}"
+    ],
+    "commit-message-editor.tokens": [
+        {
+            "label": "规范化 GIT 提交信息",
+            "name": "type",
+            "description": "提交信息 `必须` 包含表明其明确意图的类型前缀!",
+            "type": "enum",
+            "combobox": false,
+            "options": [
+                {
+                    "label": "💻 编码进度 🔵",
+                    "value": "💻 编码进度",
+                    "description": "研发类型: 随时提交目标功能的阶段性编码成果."
+                },
+                {
+                    "label": "🥳 实现功能 🔵",
+                    "value": "🥳 实现功能",
+                    "description": "研发类型: 合并所有与目标功能相关的编码进度."
+                },
+                {
+                    "label": "😤 重构功能 🔵",
+                    "value": "😤 重构功能",
+                    "description": "研发类型: 使用不同的实现改进已有的实现功能."
+                },
+                {
+                    "label": "🐣 埋了个蛋 🔵",
+                    "value": "🐣 埋了个蛋",
+                    "description": "研发类型: 开心了埋一个蛋, 不开心了埋半个蛋."
+                },
+                {
+                    "label": "🎉 建立项目 🟢",
+                    "value": "🎉 建立项目",
+                    "description": "归档类型: 建立项目后的首次提交."
+                },
+                {
+                    "label": "✨ 完成需求 🟢",
+                    "value": "✨ 完成需求",
+                    "description": "归档类型: 合并所有与目标需求相关的实现功能."
+                },
+                {
+                    "label": "🐛 修复错误 🟠",
+                    "value": "🐛 修复错误",
+                    "description": "维护类型: 修复归档类型里出现的逻辑类代码错误."
+                },
+                {
+                    "label": "🚀 优化性能 🟠",
+                    "value": "🚀 优化性能",
+                    "description": "维护类型: 优化归档类型里运行缓慢的模块功能."
+                },
+                {
+                    "label": "🧰 资产配置 🟠",
+                    "value": "🧰 资产配置",
+                    "description": "维护类型: 优化归档类型里自身不产生逻辑的静态资产或配置内容."
+                },
+                {
+                    "label": "📔 修正文档 🟣",
+                    "value": "📔 修正文档",
+                    "description": "保养类型: 修正归档类型里出现的解释性文本错误."
+                },
+                {
+                    "label": "🎨 重构代码 🟣",
+                    "value": "🎨 重构代码",
+                    "description": "保养类型: 重构归档类型里混乱的代码架构, 且不影响公开 API 的功能."
+                },
+                {
+                    "label": "🛀 修整样式 🟣",
+                    "value": "🛀 修整样式",
+                    "description": "保养类型: 修改归档类型里不影响代码含义的空格, 缩进, 分号等."
+                },
+                {
+                    "label": "🤒 改进测试 🟣",
+                    "value": "🤒 改进测试",
+                    "description": "保养类型: 优化归档类型里的测试代码, 或添加新的测试方法."
+                }
+            ]
+        },
+        {
+            "label": "变更范围",
+            "name": "scope",
+            "description": "[可选的] 补充代码变更涉及到的文件路径或模块名称.",
+            "type": "text",
+            "multiline": false,
+            "prefix": "(",
+            "suffix": ")"
+        },
+        {
+            "label": "向下兼容❓",
+            "name": "breaking_change",
+            "type": "enum",
+            "options": [
+                {
+                    "label": "🤗 YES, 本次提交代码保持向下兼容. ✅",
+                    "value": ""
+                },
+                {
+                    "label": "🤬 NO!! 本次提交代码含有破坏性的变更!! ❌",
+                    "value": "❗️",
+                    "description": "👮‍♂️ 破坏原因 `必须` 在信息正文处解释说明."
+                }
+            ]
+        },
+        {
+            "label": "信息概要",
+            "name": "description",
+            "description": "提交信息 `必须` 对代码变更有一句简短的总结!",
+            "type": "text",
+            "multiline": false
+        },
+        {
+            "label": "信息正文",
+            "name": "body",
+            "description": "对代码变更提供更多相关的说明信息.",
+            "type": "text",
+            "multiline": true,
+            "lines": 6,
+            "maxLines": 20
+        }
+    ],
+    "commit-message-editor.staticTemplate": [
+        "信息类型(变更范围)向下兼容: 信息概要",
+        "",
+        "信息正文"
+    ]
+}
