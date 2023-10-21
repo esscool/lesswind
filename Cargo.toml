@@ -1,0 +1,23 @@
+#--- --- --- 少风开发包 --- --- ---#
+
+[package]
+name = "lesswind"
+version = "0.1.0"
+authors = ["esscool <esscool@foxmail.com>"]
+description = "lesswind software development kit"
+license = "MIT OR Apache-2.0"
+categories = ["development-tools", "accessibility"]
+keywords = ["base", "dev", "tool", "sdk"]
+readme = "readme.md"
+homepage = "https://lesswind.com"
+repository = "https://github.com/esscool/lesswind"
+## 构建程序
+build = "lesswind_build.rs"
+
+[lib]
+## 入口文件
+path = "lesswind_sdk.rs"
+
+[workspace]
+
+[dependencies]
